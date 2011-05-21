@@ -9,10 +9,11 @@ import com.googolmo.smsplus.Log;
 import com.googolmo.smsplus.SMSMessage;
 
 import android.content.Context;
-import android.view.GestureDetector;
-import android.view.GestureDetector.OnGestureListener;
+import android.view.GestureDetector.SimpleOnGestureListener;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -32,6 +33,8 @@ public class PopupViewFlipper extends ViewFlipper {
 
 	private MessageCountChanged messageCountChanged;
 	float firstTouchValue = 0;
+
+	private GestureDetector gestureDetector;
 
 	public PopupViewFlipper(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -80,44 +83,46 @@ public class PopupViewFlipper extends ViewFlipper {
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
-		switch (event.getAction()) {
-		case MotionEvent.ACTION_MOVE:
-			if (Log.ISDEBUG)
-				Log.d("ACTION_MOVE");
-			// if (firstTouchValue == 0) {
-			// firstTouchValue = event.getX();
-			// }
-
-			// if (Log.ISDEBUG)
-			Log.d("enevet.getx()=" + event.getX() + ";firstTouchValue="
-					+ firstTouchValue);
-			if ((event.getX() - firstTouchValue) > (this.getWidth() / 2)) {
-				showPrevious();
-				firstTouchValue = event.getX();
-			} else if ((event.getX() - firstTouchValue) < -(this.getWidth() / 2)) {
-				showNext();
-				firstTouchValue = event.getX();
-
-			}
-			// if(event.getX()>oldTouchValue){
-			// showPrevious();
-			// }else if(event.getX()<oldTouchValue){
-			// showNext();
-			// }
-			// oldTouchValue = event.getX();
-			break;
-		case MotionEvent.ACTION_DOWN:
-			if (Log.ISDEBUG)
-				Log.d("action_down");
-			firstTouchValue = event.getX();
-			break;
-		case MotionEvent.ACTION_UP:
-			if (Log.ISDEBUG)
-				Log.d("ACTION_UP");
-			firstTouchValue = 0;
-			break;
-		}
-		return super.onTouchEvent(event);
+		// switch (event.getAction()) {
+		// case MotionEvent.ACTION_MOVE:
+		// if (Log.ISDEBUG)
+		// Log.d("ACTION_MOVE");
+		// // if (firstTouchValue == 0) {
+		// // firstTouchValue = event.getX();
+		// // }
+		//
+		// // if (Log.ISDEBUG)
+		// Log.d("enevet.getx()=" + event.getX() + ";firstTouchValue="
+		// + firstTouchValue);
+		// if ((event.getX() - firstTouchValue) > (this.getWidth() / 2)) {
+		// showPrevious();
+		// firstTouchValue = event.getX();
+		// } else if ((event.getX() - firstTouchValue) < -(this.getWidth() / 2))
+		// {
+		// showNext();
+		// firstTouchValue = event.getX();
+		//
+		// }
+		// // if(event.getX()>oldTouchValue){
+		// // showPrevious();
+		// // }else if(event.getX()<oldTouchValue){
+		// // showNext();
+		// // }
+		// // oldTouchValue = event.getX();
+		// break;
+		// case MotionEvent.ACTION_DOWN:
+		// if (Log.ISDEBUG)
+		// Log.d("action_down");
+		// firstTouchValue = event.getX();
+		// break;
+		// case MotionEvent.ACTION_UP:
+		// if (Log.ISDEBUG)
+		// Log.d("ACTION_UP");
+		// firstTouchValue = 0;
+		// break;
+		// }
+		// return super.onTouchEvent(event);
+		return onTouchListener.onTouch(this, event);
 	}
 
 	private void init(Context c) {
@@ -125,7 +130,26 @@ public class PopupViewFlipper extends ViewFlipper {
 		messages = new ArrayList<SMSMessage>(5);
 		totalMessage = 0;
 		currunMessage = 0;
+		gestureDetector = new GestureDetector(new CommanGestureListener());
 	}
+
+	// @Override
+	// public boolean onTouchEvent(MotionEvent event){
+	// if (Log.ISDEBUG)
+	// Log.d("onTouchEvent");
+	// return gestureDetector.onTouchEvent(event);
+	// }
+
+	private View.OnTouchListener onTouchListener = new OnTouchListener() {
+
+		@Override
+		public boolean onTouch(View v, MotionEvent event) {
+			// TODO Auto-generated method stub
+			if (Log.ISDEBUG)
+				Log.d("OnTouchListener--->onTouch");
+			return gestureDetector.onTouchEvent(event);
+		}
+	};
 
 	public void setOnMessageCountChanged(MessageCountChanged m) {
 		messageCountChanged = m;
@@ -138,7 +162,11 @@ public class PopupViewFlipper extends ViewFlipper {
 	public void addMessage(SMSMessage newMessage) {
 
 		messages.add(newMessage);
-		addView(new SMSPopupView(context, newMessage));
+		SMSPopupView spView = new SMSPopupView(context, newMessage,
+				onTouchListener, gestureDetector);
+		// spView.setOnTouchListener(onTouchListener);
+		// spView.setGestureDetector(gestureDetector);
+		addView(spView);
 
 		totalMessage = messages.size();
 
@@ -155,7 +183,11 @@ public class PopupViewFlipper extends ViewFlipper {
 		// TODO Auto-generated method stub
 		if (unreadMessages != null) {
 			for (int i = 0; i < unreadMessages.size(); i++) {
-				addView(new SMSPopupView(context, unreadMessages.get(i)));
+				SMSPopupView spView = new SMSPopupView(context,
+						unreadMessages.get(i), onTouchListener, gestureDetector);
+				// spView.setOnTouchListener(onTouchListener);
+				// spView.setGestureDetector(gestureDetector);
+				addView(spView);
 			}
 			messages.addAll(unreadMessages);
 			totalMessage = messages.size();
@@ -194,6 +226,22 @@ public class PopupViewFlipper extends ViewFlipper {
 			}
 		}
 		return true;
+	}
+
+	public class CommanGestureListener extends SimpleOnGestureListener {
+
+		@Override
+		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+				float velocityY) {
+			if (Log.ISDEBUG)
+				Log.d("onFling");
+			if (e1.getX() - e2.getX() > 100 && Math.abs(velocityX) > 50) {
+				showNext();
+			} else if (e2.getX() - e1.getX() > 100 && Math.abs(velocityX) > 50) {
+				showPrevious();
+			}
+			return true;
+		}
 	}
 
 	private static class AnimationHelper {

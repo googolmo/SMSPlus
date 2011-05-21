@@ -37,7 +37,7 @@ public class SMSPopupView extends LinearLayout {
 
 	private TextView headerTextView;
 
-	private ScrollView messageScrollView;
+	private FirendlyScrollView messageScrollView;
 
 	private ImageView fromImageView;
 
@@ -45,6 +45,40 @@ public class SMSPopupView extends LinearLayout {
 	private Bitmap contactPhoto = null;
 	private static int contactPhotoMargin = 3;
 	private static int contactPhotoDefaultMargin = 10;
+
+	private View.OnTouchListener onTouchListener;
+
+	private GestureDetector gestureDetector;
+
+	/**
+	 * @return the gestureDetector
+	 */
+	public GestureDetector getGestureDetector() {
+		return gestureDetector;
+	}
+
+	/**
+	 * @param gestureDetector
+	 *            the gestureDetector to set
+	 */
+	public void setGestureDetector(GestureDetector gestureDetector) {
+		this.gestureDetector = gestureDetector;
+	}
+
+	/**
+	 * @return the onTouchListener
+	 */
+	public View.OnTouchListener getOnTouchListener() {
+		return onTouchListener;
+	}
+
+	/**
+	 * @param onTouchListener
+	 *            the onTouchListener to set
+	 */
+	public void setOnTouchListener(View.OnTouchListener onTouchListener) {
+		this.onTouchListener = onTouchListener;
+	}
 
 	/**
 	 * @param context
@@ -74,6 +108,18 @@ public class SMSPopupView extends LinearLayout {
 		setMessages(this.message);
 	}
 
+	public SMSPopupView(Context context, SMSMessage message,
+			OnTouchListener onTouchListener, GestureDetector gestureDetector) {
+		super(context);
+		// TODO
+		this.context = context;
+		this.message = message;
+		this.onTouchListener = onTouchListener;
+		this.gestureDetector = gestureDetector;
+		setLayout(this.context);
+		setMessages(this.message);
+	}
+
 	private void setLayout(Context context) {
 		// TODO
 		View.inflate(context, R.layout.message, this);
@@ -81,12 +127,14 @@ public class SMSPopupView extends LinearLayout {
 		fromTextView = (TextView) findViewById(R.id.FromTextView);
 		messageTextView = (TextView) findViewById(R.id.MessageTextView);
 		headerTextView = (TextView) findViewById(R.id.HeaderTextView);
-		messageScrollView = (ScrollView) findViewById(R.id.MessageScrollView);
+		messageScrollView = (FirendlyScrollView) findViewById(R.id.MessageScrollView);
 		fromImageView = (ImageView) findViewById(R.id.FromImageView);
 		// messageTextView.setText("New Text");
 		messageScrollView.setVisibility(View.VISIBLE);
 		messageTextView.setVisibility(View.VISIBLE);
 		loadContactPhoto();
+		messageScrollView.setOnTouchListener(onTouchListener);
+		messageScrollView.setGestureDetector(gestureDetector);
 	}
 
 	private void setMessages(SMSMessage message) {

@@ -291,7 +291,7 @@ public class PopupActivity extends Activity {
 
 	private void refreshViews() {
 		buttonSwitcher.setDisplayedChild(R.id.ButtonViewSwitcher);
-		registerForContextMenu(popupViewFlipper);
+		//registerForContextMenu(popupViewFlipper);
 	}
 
 	private void resizeLayout() {
