@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- App Setting -->
+	<string name="hello">Hello World, SMSPlus!</string>
+	<string name="app_name">SMSPlus</string>
+	<string name="new_text_at">%s</string>
+
+	<!-- Main Preferences -->
+	<string name="pref_conf_title">SMSPlus配置</string>
+	<string name="pref_other_title">其他</string>
+	<string name="pref_screen_category">屏幕控制</string>
+
+	<string name="pref_enabled_title">开启SMSPlus</string>
+	<string name="pref_enabled_summaryon">SMSPlus已经开启</string>
+	<string name="pref_enabled_summaryoff">SMSPlus已经关闭</string>
+
+
+	<string name="pref_screen_on_title">自动点亮屏幕</string>
+	<string name="pref_screen_on_summaryon">收到新信息时点亮屏幕</string>
+	<string name="pref_screen_on_summaryoff">收到新信息时不点亮屏幕</string>
+
+	<string name="pref_timeout_title">屏幕超时时间</string>
+	<string name="pref_timeout_summary">将在这个时间之后自动关闭屏幕</string>
+
+	<string name="pref_about_title">关于</string>
+	<string name="pref_about_summary">关于SMSPlus</string>
+	<string name="pref_about_text">创建: Googol Mo\nEmail:
+		googolmo@gmail.com\nBlog:http://goo.golmo.pp.ru\n\n</string>
+
+	<!-- Arrays texts -->
+	<string name="pref_timeout_entries_10s">10秒</string>
+	<string name="pref_timeout_entries_20s">20秒</string>
+	<string name="pref_timeout_entries_30s">30秒</string>
+	<string name="pref_timeout_entries_1m">1分钟</string>
+	<string name="pref_timeout_entries_2m">2分钟</string>
+	<string name="pref_timeout_entries_5m">5分钟</string>
+	<string name="pref_timeout_entries_10m">10分钟</string>
+
+	<!-- Button Strings -->
+	<string name="button_close">关闭</string>
+	<string name="button_reply">回复</string>	
+	<string name="button_markasread">标记为已读</string>
+	<string name="button_inbox">收件箱</string>
+	<string name="button_view">查看</string>
+	<string name="button_delete">删除</string>
+	<string name="button_next">下一条</string>
+	<string name="button_previous">前一条</string>
+
+</resources>

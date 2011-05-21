@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="@string/pref_conf_title">
+		<com.googolmo.smsplus.preferences.SPEnabledCheckBox
+			android:key="@string/pref_enabled_key" android:title="@string/pref_enabled_title"
+			android:summaryOn="@string/pref_enabled_summaryon"
+			android:summaryOff="@string/pref_enabled_summaryoff"
+			android:defaultValue="true" />
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/pref_screen_category">
+		<CheckBoxPreference android:key="@string/pref_screen_on_key"
+			android:title="@string/pref_screen_on_title" android:summaryOn="@string/pref_screen_on_summaryon"
+			android:summaryOff="@string/pref_screen_on_summaryoff"
+			android:defaultValue="@string/pref_screen_on_default" 
+			android:dependency="@string/pref_enabled_key"/>		
+		<ListPreference android:key="@string/pref_timeout_key"
+			android:title="@string/pref_timeout_title" android:summary="@string/pref_timeout_summary"
+			android:entries="@array/pref_timeout_entries" android:entryValues="@array/pref_timeout_values"
+			android:defaultValue="@string/pref_timeout_default"
+			android:dependency="@string/pref_screen_on_key" />		
+	</PreferenceCategory>
+	<PreferenceCategory android:key="@string/pref_other_key"
+		android:title="@string/pref_other_title">
+		<com.googolmo.smsplus.preferences.AboutDialog
+			android:title="@string/pref_about_title" android:dialogIcon="@drawable/icon"
+			android:dialogTitle="@string/app_name" android:key="@string/pref_about_key"
+			android:negativeButtonText="@null" android:summary="@string/pref_about_summary" />
+	</PreferenceCategory>
+</PreferenceScreen>

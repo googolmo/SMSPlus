@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- App Setting -->
+	<string name="hello">Hello World, SMSPlus!</string>
+	<string name="app_name">SMSPlus</string>
+	<string name="new_text_at">New message at %s</string>
+
+	<!-- Main Preferences -->
+	<string name="pref_conf_title">SMSPlus Configuration</string>
+	<string name="pref_other_title">Other</string>
+	<string name="pref_screen_category">Screen Control</string>
+
+	<string name="pref_enabled_title">Enable SMSPlus</string>
+	<string name="pref_enabled_summaryon">SMSPlus is enabled</string>
+	<string name="pref_enabled_summaryoff">SMSPlus is disabled</string>
+
+
+	<string name="pref_screen_on_title">Auto Screen On</string>
+	<string name="pref_screen_on_summaryon">Screen will turn on when smsreceived</string>
+	<string name="pref_screen_on_summaryoff">Screen will not turn on when smsreceived</string>
+
+	<string name="pref_timeout_title">Screen Timeout</string>
+	<string name="pref_timeout_summary">The screen will sleep after this time</string>
+
+	<string name="pref_about_title">About</string>
+	<string name="pref_about_summary">About SMSPlus</string>
+	<string name="pref_about_text">Created by: Googol Mo\nEmail:
+		googolmo@gmail.com\nBlog:http://goo.golmo.pp.ru\n\n</string>
+
+	<!-- Arrays texts -->
+	<string name="pref_timeout_entries_10s">10 seconds</string>
+	<string name="pref_timeout_entries_20s">20 seconds</string>
+	<string name="pref_timeout_entries_30s">30 seconds</string>
+	<string name="pref_timeout_entries_1m">1 minute</string>
+	<string name="pref_timeout_entries_2m">2 minutes</string>
+	<string name="pref_timeout_entries_5m">5 minutes</string>
+	<string name="pref_timeout_entries_10m">10 minutes</string>
+
+	<!-- Button Strings -->
+	<string name="button_close">Close</string>
+	<string name="button_reply">Reply</string>
+	<string name="button_markasread">Mark As Read</string>
+	<string name="button_inbox">Inbox</string>
+	<string name="button_view">View</string>
+	<string name="button_delete">Delete</string>
+	<string name="button_next">Next</string>
+	<string name="button_previous">Previous</string>
+	<string name="button_unlock">Unlock</string>
+	<string name="button_delete_noconfirm">Delete (no confirmation)</string>
+	<string name="button_disabled">Disabled</string>
+
+
+	<!-- Dialog -->
+	<string name="pref_show_delete_button_dialog_title">Delete Message</string>
+	<string name="pref_show_delete_button_dialog_text">Are you sure?</string>
+
+	<!-- popup -->
+	<string name="delete_message_failed_text">Delete failed</string>
+
+</resources>
