@@ -53,19 +53,20 @@ public final class R {
  Button Strings 
          */
         public static final int button_close=0x7f06001f;
-        public static final int button_delete=0x7f060024;
-        public static final int button_delete_noconfirm=0x7f060028;
-        public static final int button_disabled=0x7f060029;
+        public static final int button_disabled=0x7f060026;
         public static final int button_inbox=0x7f060022;
         public static final int button_markasread=0x7f060021;
-        public static final int button_next=0x7f060025;
-        public static final int button_previous=0x7f060026;
-        public static final int button_reply=0x7f060020;
-        public static final int button_unlock=0x7f060027;
-        public static final int button_view=0x7f060023;
-        /**  popup 
+        /**  <string name="button_delete">Delete</string> 
          */
-        public static final int delete_message_failed_text=0x7f06002c;
+        public static final int button_next=0x7f060024;
+        public static final int button_previous=0x7f060025;
+        public static final int button_reply=0x7f060020;
+        public static final int button_view=0x7f060023;
+        public static final int delete_message_failed_text=0x7f060028;
+        /**  errorMessage 
+ errorMessage 
+         */
+        public static final int error_markasreadfailed=0x7f060027;
         /**  App Setting 
  App Setting 
          */
@@ -91,10 +92,6 @@ public final class R {
         public static final int pref_screen_on_summaryoff=0x7f060012;
         public static final int pref_screen_on_summaryon=0x7f060011;
         public static final int pref_screen_on_title=0x7f060010;
-        public static final int pref_show_delete_button_dialog_text=0x7f06002b;
-        /**  Dialog 
-         */
-        public static final int pref_show_delete_button_dialog_title=0x7f06002a;
         public static final int pref_timeout_default=0x7f060000;
         public static final int pref_timeout_entries_10m=0x7f06001e;
         /**  Arrays texts 

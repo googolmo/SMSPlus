@@ -39,12 +39,16 @@
 
 	<!-- Button Strings -->
 	<string name="button_close">关闭</string>
-	<string name="button_reply">回复</string>	
+	<string name="button_reply">回复</string>
 	<string name="button_markasread">标记为已读</string>
 	<string name="button_inbox">收件箱</string>
 	<string name="button_view">查看</string>
-	<string name="button_delete">删除</string>
 	<string name="button_next">下一条</string>
 	<string name="button_previous">前一条</string>
+
+	<!-- errorMessage -->
+	<string name="error_markasreadfailed">标记为已读失败</string>
+	<string name="delete_message_failed_text">删除失败</string>
+
 
 </resources>

@@ -15,7 +15,7 @@
 			android:padding="4dp">
 			<TextView android:id="@+id/FromTextView"
 				android:layout_width="fill_parent" android:gravity="center_vertical"
-				android:autoLink="phone" android:textAppearance="?android:attr/textAppearanceLarge"
+				android:autoLink="phone" android:textAppearance="?android:attr/textAppearanceSmall"
 				android:maxLines="2" android:layout_height="wrap_content"
 				android:text="Text Here" android:ellipsize="end"
 				android:paddingBottom="2dp" android:textColorLink="?android:attr/textColorPrimaryDisableOnly" />

@@ -43,19 +43,16 @@
 	<string name="button_markasread">Mark As Read</string>
 	<string name="button_inbox">Inbox</string>
 	<string name="button_view">View</string>
-	<string name="button_delete">Delete</string>
+	<!-- <string name="button_delete">Delete</string> -->
 	<string name="button_next">Next</string>
 	<string name="button_previous">Previous</string>
-	<string name="button_unlock">Unlock</string>
-	<string name="button_delete_noconfirm">Delete (no confirmation)</string>
 	<string name="button_disabled">Disabled</string>
 
-
-	<!-- Dialog -->
-	<string name="pref_show_delete_button_dialog_title">Delete Message</string>
-	<string name="pref_show_delete_button_dialog_text">Are you sure?</string>
-
-	<!-- popup -->
+	<!-- errorMessage -->
+	<string name="error_markasreadfailed">Mark As Read Failed</string>
 	<string name="delete_message_failed_text">Delete failed</string>
+
+
+
 
 </resources>

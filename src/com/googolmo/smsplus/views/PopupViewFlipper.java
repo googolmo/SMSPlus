@@ -64,6 +64,21 @@ public class PopupViewFlipper extends ViewFlipper {
 		}
 	}
 
+	/**
+	 * @return the totalMessage
+	 */
+	public int getTotalMessage() {
+		return totalMessage;
+	}
+
+	/**
+	 * @param totalMessage
+	 *            the totalMessage to set
+	 */
+	public void setTotalMessage(int totalMessage) {
+		this.totalMessage = totalMessage;
+	}
+
 	@Override
 	public void showPrevious() {
 		// TODO Auto-generated method stub
@@ -77,7 +92,17 @@ public class PopupViewFlipper extends ViewFlipper {
 				Log.d("PopupViewFlipper----->showPrevious: currentMessage="
 						+ getActiveMessage().getContactName());
 		}
+	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.widget.ViewAnimator#removeView(android.view.View)
+	 */
+	@Override
+	public void removeView(View view) {
+		// TODO Auto-generated method stub
+		super.removeView(view);
 	}
 
 	@Override
@@ -201,11 +226,15 @@ public class PopupViewFlipper extends ViewFlipper {
 	}
 
 	public boolean removeActiveMessage() {
-		return removeMessage(currunMessage);
+		boolean flag = removeMessage(currunMessage);
+		// UpdateMessageCount();
+		Log.i("PopupViewFlipper---->removeActiveMessage");
+		return flag;
 	}
 
 	public boolean removeMessage(int _messageID) {
-		if (_messageID < totalMessage && _messageID > 0 && totalMessage > 0) {
+		// Log.d("messageID=" + _messageID + ";totalMessage=" + totalMessage);
+		if (_messageID < totalMessage && _messageID >= 0 && totalMessage > 0) {
 			setOutAnimation(context, android.R.anim.fade_out);
 
 			if (_messageID == (totalMessage - 1)) {
@@ -220,9 +249,13 @@ public class PopupViewFlipper extends ViewFlipper {
 			if (currunMessage >= totalMessage) {
 				currunMessage = totalMessage - 1;
 			}
+			// if (Log.ISDEBUG)
+			// Log.d("totalMessage=" + totalMessage);
 			UpdateMessageCount();
 			if (totalMessage > 0) {
-				return false;
+				if (Log.ISDEBUG)
+					// Log.d("totalMessage=" + totalMessage);
+					return false;
 			}
 		}
 		return true;

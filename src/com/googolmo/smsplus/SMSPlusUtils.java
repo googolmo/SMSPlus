@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,6 +33,7 @@ import android.telephony.SmsMessage;
 public class SMSPlusUtils {
 	static String contactLookupUri = "content://com.android.contacts/phone_lookup";
 	private static final String UNREAD_CONDITION = "read=0";
+	private static final String MESSAGE_CONDITION = "_id=?";
 
 	public static final Uri SMS_CONTENT_URI = Uri.parse("content://sms");
 	public static final Uri SMS_INBOX_CONTENT_URI = Uri.withAppendedPath(
@@ -44,7 +46,7 @@ public class SMSPlusUtils {
 			MMS_SMS_CONTENT_URI, "conversations");
 
 	// The size of the contact photo thumbnail on the popup
-	public static final int CONTACT_PHOTO_THUMBSIZE = 60;
+	public static final int CONTACT_PHOTO_THUMBSIZE = 50;
 
 	// The max size of either the width or height of the contact photo
 	public static final int CONTACT_PHOTO_MAXSIZE = 1024;
@@ -103,6 +105,9 @@ public class SMSPlusUtils {
 		return smsMessages;
 	}
 
+	/*
+	 * 联系人信息
+	 */
 	public static class ContactInfo {
 		String ContactID = null;
 		String ContactName = null;
@@ -119,6 +124,45 @@ public class SMSPlusUtils {
 			ContactName = _contactName;
 			ContactLookup = _contactLookup;
 		}
+
+	}
+
+	/*
+	 * 标记为已读
+	 */
+	public static synchronized int markAsReadBySMSMessage(Context context,
+			SMSMessage message) {
+		if (Log.ISDEBUG)
+			Log.d("SMSPlusUtils------>markAsReadBySMSMessage");
+		final String[] projection = new String[] { "_id", "address", "read" };
+		final String selection = MESSAGE_CONDITION;
+		final String[] selectionArgs = new String[] { String.valueOf(message
+				.getMessageID()) };
+		final String sortOrder = "date DESC";
+
+		int result = 0;
+
+		Cursor cursor = context.getContentResolver().query(
+				SMS_INBOX_CONTENT_URI, projection, selection, selectionArgs,
+				sortOrder);
+
+		if (cursor != null) {
+			try {
+				ContentValues values = new ContentValues();
+				values.put("read", "1");
+				cursor.moveToFirst();
+				result = context.getContentResolver()
+						.update(SMS_INBOX_CONTENT_URI, values, selection,
+								selectionArgs);
+			} catch (Exception e) {
+				// TODO: handle exception
+				Log.e(e.getMessage());
+			} finally {
+				cursor.close();
+			}
+
+		}
+		return result;
 
 	}
 
@@ -215,6 +259,7 @@ public class SMSPlusUtils {
 				cursor.close();
 			}
 		}
+		// cursor.close();
 		return threadID;
 	}
 
@@ -381,22 +426,28 @@ public class SMSPlusUtils {
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e(e.getMessage());
+			// e.printStackTrace();
 		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// e.printStackTrace();
+			Log.e(e.getMessage());
 		} catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e(e.getMessage());
+			// e.printStackTrace();
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// e.printStackTrace();
+			Log.e(e.getMessage());
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// e.printStackTrace();
+			Log.e(e.getMessage());
 		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// e.printStackTrace();
+			Log.e(e.getMessage());
 		}
 
 		return bm;

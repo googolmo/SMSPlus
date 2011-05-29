@@ -219,6 +219,8 @@ public class PopupActivity extends Activity {
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
 						| Intent.FLAG_ACTIVITY_CLEAR_TOP
 						| Intent.FLAG_ACTIVITY_SINGLE_TOP);
+				// 解开键盘锁
+				unlock();
 				getApplicationContext().startActivity(intent);
 				finish();
 			}
@@ -262,11 +264,12 @@ public class PopupActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-
+				markAsRead();
 			}
 		});
-		button2.setVisibility(View.GONE);
+		// button2.setVisibility(View.GONE);
 
+		// 回复操作按钮
 		final Button button3 = (Button) findViewById(R.id.button3);
 		button3.setOnClickListener(new OnClickListener() {
 
@@ -278,7 +281,7 @@ public class PopupActivity extends Activity {
 				Intent i = SMSPlusUtils.getReplyIntent(getApplicationContext(),
 						popupViewFlipper.getActiveMessage());
 				getApplicationContext().startActivity(i);
-				finish();
+				// finish();
 			}
 		});
 		refreshViews();
@@ -291,7 +294,6 @@ public class PopupActivity extends Activity {
 
 	private void refreshViews() {
 		buttonSwitcher.setDisplayedChild(R.id.ButtonViewSwitcher);
-		//registerForContextMenu(popupViewFlipper);
 	}
 
 	private void resizeLayout() {
@@ -323,29 +325,21 @@ public class PopupActivity extends Activity {
 		WakeLockManager.releasePartial();
 	}
 
-	// private void deleteMessage() {
-	// Intent i = new Intent(getApplicationContext(),
-	// SMSPlusUtilsService.class);
-	// i.setAction(SMSPlusUtilsService.ACTION_DELETE_MESSAGE);
-	// i.putExtras(popupViewFlipper.getActiveMessage().toBundle());
-	// SMSPlusUtilsService.startingService(getApplicationContext(), i);
-	//
+	// private void removeActiveMessage() {
+	// if (popupViewFlipper.removeActiveMessage()) {
+	// finish();
+	// } else {
+	// // 提醒
+	// Toast.makeText(getApplicationContext(),
+	// getString(R.string.delete_message_failed_text),
+	// Toast.LENGTH_LONG).show();
+	// }
 	// }
 
-	private void removeActiveMessage() {
-		if (popupViewFlipper.removeActiveMessage()) {
-			finish();
-		} else {
-			// 提醒
-			Toast.makeText(getApplicationContext(),
-					getString(R.string.delete_message_failed_text),
-					Toast.LENGTH_LONG).show();
-		}
-	}
-
 	private void closeMessages() {
-		removeActiveMessage();
+		// removeActiveMessage();
 		ClearReceiver.clearAll(true);
+		finish();
 	}
 
 	private void unlock() {
@@ -356,6 +350,31 @@ public class PopupActivity extends Activity {
 			public void LaunchOnKeyguardExitSuccess() {
 			}
 		});
+	}
+
+	/*
+	 * 标记为已读
+	 */
+	private void markAsRead() {
+		// TODO
+		if (SMSPlusUtils.markAsReadBySMSMessage(getApplicationContext(),
+				popupViewFlipper.getActiveMessage()) == 0) {
+			Toast.makeText(getApplicationContext(),
+					getString(R.string.error_markasreadfailed),
+					Toast.LENGTH_LONG).show();
+		} else {
+			// TODO
+			// 删除当前的显示信息
+			if (popupViewFlipper.removeActiveMessage() == true) {
+				finish();
+			}
+			if (Log.ISDEBUG)
+				Log.d("totalMessage=" + popupViewFlipper.getTotalMessage());
+
+			// popupViewFlipper.showNext();
+
+		}
+		// SMSMessage message = popupViewFlipper.getActiveMessage();
 	}
 
 }
