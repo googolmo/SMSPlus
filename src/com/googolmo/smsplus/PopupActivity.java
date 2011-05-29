@@ -8,6 +8,7 @@ import com.googolmo.smsplus.views.PopupViewFlipper;
 import com.googolmo.smsplus.views.PopupViewFlipper.MessageCountChanged;
 
 import android.app.Activity;
+import android.app.NotificationManager;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -37,6 +38,7 @@ public class PopupActivity extends Activity {
 	private static final int MAX_WIDTH = 640;
 	private static final double WIDTH = 0.9;
 	public static final String SMS_MIME_TYPE = "vnd.android-dir/mms-sms";
+	private static final int NOTIFICATION_ID = 123;
 
 	private boolean wasVisible = false;
 	private boolean exitingKeyguard = false;
@@ -366,6 +368,11 @@ public class PopupActivity extends Activity {
 			// TODO
 			// 删除当前的显示信息
 			if (popupViewFlipper.removeActiveMessage() == true) {
+				NotificationManager notificationManager = (NotificationManager) getApplicationContext()
+						.getSystemService(NOTIFICATION_SERVICE);
+				// notificationManager.cancel(NOTIFICATION_ID);
+				notificationManager.cancelAll();
+
 				finish();
 			}
 			if (Log.ISDEBUG)
