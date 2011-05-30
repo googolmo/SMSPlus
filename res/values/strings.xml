@@ -10,6 +10,7 @@
 	<string name="pref_conf_title">SMSPlus Configuration</string>
 	<string name="pref_other_title">Other</string>
 	<string name="pref_screen_category">Screen Control</string>
+	<string name="pref_notification_category">Notification</string>
 
 	<string name="pref_enabled_title">Enable SMSPlus</string>
 	<string name="pref_enabled_summaryon">SMSPlus is enabled</string>
@@ -22,6 +23,34 @@
 
 	<string name="pref_timeout_title">Screen Timeout</string>
 	<string name="pref_timeout_summary">The screen will sleep after this time</string>
+
+
+	<string name="pref_notification_enable_title">Enable Notification</string>
+	<string name="pref_notification_enable_summaryon">Will Notification on when smsrecevied</string>
+	<string name="pref_notification_enable_summaryoff">Will Not Notification on when smsrecevied</string>
+
+	<string name="pref_notification_vibrate_title">Vibrate</string>
+	<string name="pref_notification_vibrate_summaryon">Vibrate is on</string>
+	<string name="pref_notification_vibrate_summaryoff">Vibrate is off</string>
+
+	<string name="pref_notification_vibratemode_title">Vibrate Mode</string>
+	<string name="pref_notification_vibratemode_summary">Select Vibrate Mode</string>
+
+	<string name="pref_notification_ringtone_title">Ringtone</string>
+	<string name="pref_notification_ringtone_summaryon">Ringtone is on</string>
+	<string name="pref_notification_ringtone_summaryoff">Ringtone is off</string>
+
+	<string name="pref_notification_ringtonemode_titile">Ringtone Mode</string>
+	<string name="pref_notification_ringtonemode_summary">Select Ringtone Mode</string>
+
+	<string name="pref_notification_led_title">Led</string>
+	<string name="pref_notification_led_summaryon">Led is on</string>
+	<string name="pref_notification_led_summaryoff">Led is off</string>
+
+	<string name="pref_notification_ledmode_title">Led Color</string>
+	<string name="pref_notification_ledmode_summary">Select Led Color</string>
+
+
 
 	<string name="pref_about_title">About</string>
 	<string name="pref_about_summary">About SMSPlus</string>
@@ -37,6 +66,20 @@
 	<string name="pref_timeout_entries_5m">5 minutes</string>
 	<string name="pref_timeout_entries_10m">10 minutes</string>
 
+	<!-- Arrays VibrateMode -->
+	<string name="pref_vibrate_entries_normal">Normal</string>
+	<string name="pref_vibrate_entries_medium">Medium Vibrate</string>
+	<string name="pref_vibrate_entries_long">Long Vibrate</string>
+	<string name="pref_vibrate_entries_multipleshort">Multiple Short</string>
+	<string name="pref_vibrate_entries_multiplelong">Multiple Long</string>
+
+	<!-- Array Led Color -->
+	<string name="pref_vibrate_led_green">Green</string>
+	<string name="pref_vibrate_led_yellow">Yellow</string>
+	<string name="pref_vibrate_led_blue">Blue</string>
+	<string name="pref_vibrate_led_red">Red</string>
+	
+	
 	<!-- Button Strings -->
 	<string name="button_close">Close</string>
 	<string name="button_reply">Reply</string>

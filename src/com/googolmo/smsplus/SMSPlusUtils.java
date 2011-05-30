@@ -13,6 +13,7 @@ import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.AsyncQueryHandler;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -50,6 +51,12 @@ public class SMSPlusUtils {
 
 	// The max size of either the width or height of the contact photo
 	public static final int CONTACT_PHOTO_MAXSIZE = 1024;
+
+	private static final int THREAD_LIST_QUERY_TOKEN = 1701;
+//	private static final Uri sAllThreadsUri =
+//        Threads.CONTENT_URI.buildUpon().appendQueryParameter("simple", "true").build();
+
+	// private ThreadListQueryHandler mQueryHandler;
 
 	/**
 	 * 
@@ -165,6 +172,13 @@ public class SMSPlusUtils {
 		return result;
 
 	}
+
+//	public static synchronized void startAsyncQuery() {
+//		try{
+//			AsyncQueryHandler handler;
+//			handler.startQuery(THREAD_LIST_QUERY_TOKEN, null, uri, projection, selection, selectionArgs, orderBy)
+//		}
+//	}
 
 	public static synchronized ContactInfo getContactFromPhoneNumber(
 			Context context, String phoneAddress) {

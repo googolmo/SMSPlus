@@ -10,6 +10,7 @@ import com.googolmo.smsplus.views.PopupViewFlipper.MessageCountChanged;
 import android.app.Activity;
 import android.app.NotificationManager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -283,7 +284,9 @@ public class PopupActivity extends Activity {
 				Intent i = SMSPlusUtils.getReplyIntent(getApplicationContext(),
 						popupViewFlipper.getActiveMessage());
 				getApplicationContext().startActivity(i);
-				// finish();
+				if (popupViewFlipper.removeActiveMessage()) {
+					finish();
+				}
 			}
 		});
 		refreshViews();
@@ -368,10 +371,16 @@ public class PopupActivity extends Activity {
 			// TODO
 			// 删除当前的显示信息
 			if (popupViewFlipper.removeActiveMessage() == true) {
-				NotificationManager notificationManager = (NotificationManager) getApplicationContext()
-						.getSystemService(NOTIFICATION_SERVICE);
-				// notificationManager.cancel(NOTIFICATION_ID);
-				notificationManager.cancelAll();
+				// NotificationManager nm = (NotificationManager)
+				// getApplicationContext()
+				// .getSystemService(Context.NOTIFICATION_SERVICE);
+				// nm.cancel(NOTIFICATION_ID);
+				// // notificationManager.cancelAll();
+				// Intent i = new
+				// Intent("android.intent.action.BOOT_COMPLETED");
+				// // i.setAction();
+				//
+				// sendBroadcast(i);
 
 				finish();
 			}

@@ -9,6 +9,10 @@ package com.googolmo.smsplus;
 
 public final class R {
     public static final class array {
+        public static final int pref_notification_led_entries=0x7f050004;
+        public static final int pref_notification_led_values=0x7f050005;
+        public static final int pref_notification_vibrate_entries=0x7f050002;
+        public static final int pref_notification_vibrate_values=0x7f050003;
         public static final int pref_timeout_entries=0x7f050000;
         public static final int pref_timeout_values=0x7f050001;
     }
@@ -48,64 +52,109 @@ public final class R {
         public static final int popup=0x7f030002;
     }
     public static final class string {
-        public static final int app_name=0x7f060008;
+        public static final int app_name=0x7f060015;
         /**  Button Strings 
  Button Strings 
          */
-        public static final int button_close=0x7f06001f;
-        public static final int button_disabled=0x7f060026;
-        public static final int button_inbox=0x7f060022;
-        public static final int button_markasread=0x7f060021;
+        public static final int button_close=0x7f060048;
+        public static final int button_disabled=0x7f06004f;
+        public static final int button_inbox=0x7f06004b;
+        public static final int button_markasread=0x7f06004a;
         /**  <string name="button_delete">Delete</string> 
          */
-        public static final int button_next=0x7f060024;
-        public static final int button_previous=0x7f060025;
-        public static final int button_reply=0x7f060020;
-        public static final int button_view=0x7f060023;
-        public static final int delete_message_failed_text=0x7f060028;
+        public static final int button_next=0x7f06004d;
+        public static final int button_previous=0x7f06004e;
+        public static final int button_reply=0x7f060049;
+        public static final int button_view=0x7f06004c;
+        public static final int delete_message_failed_text=0x7f060051;
         /**  errorMessage 
  errorMessage 
          */
-        public static final int error_markasreadfailed=0x7f060027;
+        public static final int error_markasreadfailed=0x7f060050;
         /**  App Setting 
  App Setting 
          */
-        public static final int hello=0x7f060007;
-        public static final int new_text_at=0x7f060009;
-        public static final int pref_about_key=0x7f060006;
-        public static final int pref_about_summary=0x7f060016;
-        public static final int pref_about_text=0x7f060017;
-        public static final int pref_about_title=0x7f060015;
+        public static final int hello=0x7f060014;
+        public static final int new_text_at=0x7f060016;
+        public static final int pref_about_key=0x7f060013;
+        public static final int pref_about_summary=0x7f060036;
+        public static final int pref_about_text=0x7f060037;
+        public static final int pref_about_title=0x7f060035;
         /**  Main Preferences 
  Main Preferences 
          */
-        public static final int pref_conf_title=0x7f06000a;
-        public static final int pref_enabled_key=0x7f060002;
-        public static final int pref_enabled_summaryoff=0x7f06000f;
-        public static final int pref_enabled_summaryon=0x7f06000e;
-        public static final int pref_enabled_title=0x7f06000d;
-        public static final int pref_other_key=0x7f060003;
-        public static final int pref_other_title=0x7f06000b;
-        public static final int pref_screen_category=0x7f06000c;
+        public static final int pref_conf_title=0x7f060017;
+        public static final int pref_enabled_key=0x7f060008;
+        public static final int pref_enabled_summaryoff=0x7f06001d;
+        public static final int pref_enabled_summaryon=0x7f06001c;
+        public static final int pref_enabled_title=0x7f06001b;
+        public static final int pref_notification_category=0x7f06001a;
+        public static final int pref_notification_enable_default=0x7f060002;
+        public static final int pref_notification_enable_summaryoff=0x7f060025;
+        public static final int pref_notification_enable_summaryon=0x7f060024;
+        public static final int pref_notification_enable_title=0x7f060023;
+        public static final int pref_notification_key=0x7f06000c;
+        public static final int pref_notification_led_default=0x7f060006;
+        public static final int pref_notification_led_key=0x7f060011;
+        public static final int pref_notification_led_summaryoff=0x7f060032;
+        public static final int pref_notification_led_summaryon=0x7f060031;
+        public static final int pref_notification_led_title=0x7f060030;
+        public static final int pref_notification_ledmode_default=0x7f060007;
+        public static final int pref_notification_ledmode_key=0x7f060012;
+        public static final int pref_notification_ledmode_summary=0x7f060034;
+        public static final int pref_notification_ledmode_title=0x7f060033;
+        public static final int pref_notification_ringtone_default=0x7f060005;
+        public static final int pref_notification_ringtone_key=0x7f06000f;
+        public static final int pref_notification_ringtone_summaryoff=0x7f06002d;
+        public static final int pref_notification_ringtone_summaryon=0x7f06002c;
+        public static final int pref_notification_ringtone_title=0x7f06002b;
+        public static final int pref_notification_ringtonemode_key=0x7f060010;
+        public static final int pref_notification_ringtonemode_summary=0x7f06002f;
+        public static final int pref_notification_ringtonemode_titile=0x7f06002e;
+        public static final int pref_notification_vibrate_default=0x7f060003;
+        public static final int pref_notification_vibrate_key=0x7f06000d;
+        public static final int pref_notification_vibrate_summaryoff=0x7f060028;
+        public static final int pref_notification_vibrate_summaryon=0x7f060027;
+        public static final int pref_notification_vibrate_title=0x7f060026;
+        public static final int pref_notification_vibratemode_default=0x7f060004;
+        public static final int pref_notification_vibratemode_key=0x7f06000e;
+        public static final int pref_notification_vibratemode_summary=0x7f06002a;
+        public static final int pref_notification_vibratemode_title=0x7f060029;
+        public static final int pref_other_key=0x7f060009;
+        public static final int pref_other_title=0x7f060018;
+        public static final int pref_screen_category=0x7f060019;
         public static final int pref_screen_on_default=0x7f060001;
-        public static final int pref_screen_on_key=0x7f060004;
-        public static final int pref_screen_on_summaryoff=0x7f060012;
-        public static final int pref_screen_on_summaryon=0x7f060011;
-        public static final int pref_screen_on_title=0x7f060010;
+        public static final int pref_screen_on_key=0x7f06000a;
+        public static final int pref_screen_on_summaryoff=0x7f060020;
+        public static final int pref_screen_on_summaryon=0x7f06001f;
+        public static final int pref_screen_on_title=0x7f06001e;
         public static final int pref_timeout_default=0x7f060000;
-        public static final int pref_timeout_entries_10m=0x7f06001e;
+        public static final int pref_timeout_entries_10m=0x7f06003e;
         /**  Arrays texts 
  Arrays texts 
          */
-        public static final int pref_timeout_entries_10s=0x7f060018;
-        public static final int pref_timeout_entries_1m=0x7f06001b;
-        public static final int pref_timeout_entries_20s=0x7f060019;
-        public static final int pref_timeout_entries_2m=0x7f06001c;
-        public static final int pref_timeout_entries_30s=0x7f06001a;
-        public static final int pref_timeout_entries_5m=0x7f06001d;
-        public static final int pref_timeout_key=0x7f060005;
-        public static final int pref_timeout_summary=0x7f060014;
-        public static final int pref_timeout_title=0x7f060013;
+        public static final int pref_timeout_entries_10s=0x7f060038;
+        public static final int pref_timeout_entries_1m=0x7f06003b;
+        public static final int pref_timeout_entries_20s=0x7f060039;
+        public static final int pref_timeout_entries_2m=0x7f06003c;
+        public static final int pref_timeout_entries_30s=0x7f06003a;
+        public static final int pref_timeout_entries_5m=0x7f06003d;
+        public static final int pref_timeout_key=0x7f06000b;
+        public static final int pref_timeout_summary=0x7f060022;
+        public static final int pref_timeout_title=0x7f060021;
+        public static final int pref_vibrate_entries_long=0x7f060041;
+        public static final int pref_vibrate_entries_medium=0x7f060040;
+        public static final int pref_vibrate_entries_multiplelong=0x7f060043;
+        public static final int pref_vibrate_entries_multipleshort=0x7f060042;
+        /**  Arrays VibrateMode 
+         */
+        public static final int pref_vibrate_entries_normal=0x7f06003f;
+        public static final int pref_vibrate_led_blue=0x7f060046;
+        /**  Array Led Color 
+         */
+        public static final int pref_vibrate_led_green=0x7f060044;
+        public static final int pref_vibrate_led_red=0x7f060047;
+        public static final int pref_vibrate_led_yellow=0x7f060045;
     }
     public static final class xml {
         public static final int preferences=0x7f040000;

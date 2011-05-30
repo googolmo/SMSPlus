@@ -4,5 +4,12 @@
 	<string name="pref_other_key">other</string>
 	<string name="pref_screen_on_key">screenon</string>
 	<string name="pref_timeout_key">timeout</string>
+	<string name="pref_notification_key">notification</string>
+	<string name="pref_notification_vibrate_key">vibrate</string>
+	<string name="pref_notification_vibratemode_key">vibratemode</string>
+	<string name="pref_notification_ringtone_key">ringtone</string>
+	<string name="pref_notification_ringtonemode_key">ringtonemode</string>
+	<string name="pref_notification_led_key">led</string>
+	<string name="pref_notification_ledmode_key">ledmode</string>
 	<string name="pref_about_key">about</string>
 </resources>

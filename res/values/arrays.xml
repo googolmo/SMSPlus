@@ -19,4 +19,36 @@
 		<item>300</item>
 		<item>600</item>
 	</string-array>
+
+	<string-array name="pref_notification_vibrate_entries">
+		<item>@string/pref_vibrate_entries_normal</item>
+		<item>@string/pref_vibrate_entries_medium</item>
+		<item>@string/pref_vibrate_entries_long</item>
+		<item>@string/pref_vibrate_entries_multipleshort</item>
+		<item>@string/pref_vibrate_entries_multiplelong</item>
+	</string-array>
+
+	<string-array name="pref_notification_vibrate_values">
+		<item>10</item>
+		<item>20</item>
+		<item>30</item>
+		<item>60</item>
+		<item>120</item>
+		<item>300</item>
+		<item>600</item>
+	</string-array>
+
+	<string-array name="pref_notification_led_entries">
+		<item>@string/pref_vibrate_led_green</item>
+		<item>@string/pref_vibrate_led_yellow</item>
+		<item>@string/pref_vibrate_led_blue</item>
+		<item>@string/pref_vibrate_led_red</item>
+	</string-array>
+
+	<string-array name="pref_notification_led_values">
+		<item>green</item>
+		<item>yellow</item>
+		<item>blue</item>
+		<item>red</item>
+	</string-array>
 </resources>
