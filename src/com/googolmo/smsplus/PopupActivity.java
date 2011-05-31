@@ -8,13 +8,13 @@ import com.googolmo.smsplus.views.PopupViewFlipper;
 import com.googolmo.smsplus.views.PopupViewFlipper.MessageCountChanged;
 
 import android.app.Activity;
-import android.app.NotificationManager;
 
-import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 
 import android.view.Display;
 
@@ -39,7 +39,6 @@ public class PopupActivity extends Activity {
 	private static final int MAX_WIDTH = 640;
 	private static final double WIDTH = 0.9;
 	public static final String SMS_MIME_TYPE = "vnd.android-dir/mms-sms";
-	private static final int NOTIFICATION_ID = 123;
 
 	private boolean wasVisible = false;
 	private boolean exitingKeyguard = false;
@@ -348,13 +347,18 @@ public class PopupActivity extends Activity {
 	}
 
 	private void unlock() {
-		exitingKeyguard = true;
+		SharedPreferences sp = PreferenceManager
+				.getDefaultSharedPreferences(getApplicationContext());
+		if (sp.getBoolean(getString(R.string.pref_screen_on_key), true)) {
+			exitingKeyguard = true;
 
-		ManageKeyguard.exitKeyguardSecurely(new LaunchOnKeyguardExit() {
-			@Override
-			public void LaunchOnKeyguardExitSuccess() {
-			}
-		});
+			ManageKeyguard.exitKeyguardSecurely(new LaunchOnKeyguardExit() {
+				@Override
+				public void LaunchOnKeyguardExitSuccess() {
+				}
+			});
+		}
+
 	}
 
 	/*
@@ -376,14 +380,19 @@ public class PopupActivity extends Activity {
 				// .getSystemService(Context.NOTIFICATION_SERVICE);
 				// nm.cancel(NOTIFICATION_ID);
 				// // notificationManager.cancelAll();
-				// Intent i = new
-				// Intent("android.intent.action.BOOT_COMPLETED");
-				// // i.setAction();
-				//
-				// sendBroadcast(i);
+				Intent i = new Intent(
+						"com.android.mms.NOTIFICATION_DELETED_ACTION");
+				// i.setAction();
+
+				sendBroadcast(i);
 
 				finish();
 			}
+			// Intent i = new
+			// Intent("com.android.mms.NOTIFICATION_DELETED_ACTION");
+			// // i.setAction();
+			//
+			// sendBroadcast(i);
 			if (Log.ISDEBUG)
 				Log.d("totalMessage=" + popupViewFlipper.getTotalMessage());
 

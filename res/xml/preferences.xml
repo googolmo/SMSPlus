@@ -19,39 +19,34 @@
 			android:defaultValue="@string/pref_timeout_default"
 			android:dependency="@string/pref_screen_on_key" />
 	</PreferenceCategory>
-	<PreferenceCategory android:title="@string/pref_notification_category">
-		<CheckBoxPreference android:dependency="@string/pref_enabled_key"
-			android:summaryOff="@string/pref_notification_enable_summaryoff"
-			android:title="@string/pref_notification_enable_title"
-			android:summaryOn="@string/pref_notification_enable_summaryon"
-			android:key="@string/pref_notification_key" android:defaultValue="@string/pref_notification_enable_default"></CheckBoxPreference>
-		<CheckBoxPreference android:summaryOff="@string/pref_notification_vibrate_summaryoff"
-			android:title="@string/pref_notification_vibrate_title"
-			android:summaryOn="@string/pref_notification_vibrate_summaryon"
-			android:dependency="@string/pref_enabled_key" android:key="@string/pref_notification_vibrate_key"
-			android:defaultValue="@string/pref_notification_vibrate_default"></CheckBoxPreference>
-		<ListPreference android:title="@string/pref_notification_vibratemode_title"
-			android:dependency="@string/pref_notification_vibrate_key"
-			android:key="@string/pref_notification_vibratemode_title"
-			android:entryValues="@array/pref_notification_vibrate_values"
-			android:entries="@array/pref_notification_vibrate_entries"
-			android:summary="@string/pref_notification_vibratemode_summary"
-			android:defaultValue="@string/pref_notification_vibratemode_default"></ListPreference>
-		<CheckBoxPreference android:summaryOff="@string/pref_notification_ringtone_summaryoff"
-			android:title="@string/pref_notification_ringtone_title"
-			android:summaryOn="@string/pref_notification_ringtone_summaryon"
-			android:dependency="@string/pref_enabled_key" android:defaultValue="@string/pref_notification_ringtone_default"
-			android:key="@string/pref_notification_ringtone_key"></CheckBoxPreference>
-		<RingtonePreference android:ringtoneType="all"
-			android:title="@string/pref_notification_ringtonemode_titile"
-			android:summary="@string/pref_notification_ringtonemode_summary"
-			android:key="@string/pref_notification_ringtonemode_key"
-			android:showDefault="true" android:dependency="@string/pref_notification_ringtone_key"
-			android:showSilent="true"></RingtonePreference>
-		<CheckBoxPreference android:summaryOff="@string/pref_notification_led_summaryoff" android:title="@string/pref_notification_led_title" android:summaryOn="@string/pref_notification_led_summaryon" android:dependency="@string/pref_enabled_key" android:defaultValue="@string/pref_notification_led_default" android:key="@string/pref_notification_led_key"></CheckBoxPreference>
-		<ListPreference android:title="@string/pref_notification_ledmode_title" android:dependency="@string/pref_notification_led_key" android:key="@string/pref_notification_ledmode_key" android:entryValues="@array/pref_notification_led_values" android:entries="@array/pref_notification_led_entries" android:summary="@string/pref_notification_ledmode_summary" android:defaultValue="@string/pref_notification_ledmode_default"></ListPreference>
-
-	</PreferenceCategory>
+	<!-- <PreferenceCategory android:title="@string/pref_notification_category"> 
+		<CheckBoxPreference android:dependency="@string/pref_enabled_key" android:summaryOff="@string/pref_notification_enable_summaryoff" 
+		android:title="@string/pref_notification_enable_title" android:summaryOn="@string/pref_notification_enable_summaryon" 
+		android:key="@string/pref_notification_key" android:defaultValue="@string/pref_notification_enable_default"></CheckBoxPreference> 
+		<CheckBoxPreference android:summaryOff="@string/pref_notification_vibrate_summaryoff" 
+		android:title="@string/pref_notification_vibrate_title" android:summaryOn="@string/pref_notification_vibrate_summaryon" 
+		android:dependency="@string/pref_enabled_key" android:key="@string/pref_notification_vibrate_key" 
+		android:defaultValue="@string/pref_notification_vibrate_default"></CheckBoxPreference> 
+		<ListPreference android:title="@string/pref_notification_vibratemode_title" 
+		android:dependency="@string/pref_notification_vibrate_key" android:key="@string/pref_notification_vibratemode_title" 
+		android:entryValues="@array/pref_notification_vibrate_values" android:entries="@array/pref_notification_vibrate_entries" 
+		android:summary="@string/pref_notification_vibratemode_summary" android:defaultValue="@string/pref_notification_vibratemode_default"></ListPreference> 
+		<CheckBoxPreference android:summaryOff="@string/pref_notification_ringtone_summaryoff" 
+		android:title="@string/pref_notification_ringtone_title" android:summaryOn="@string/pref_notification_ringtone_summaryon" 
+		android:dependency="@string/pref_enabled_key" android:defaultValue="@string/pref_notification_ringtone_default" 
+		android:key="@string/pref_notification_ringtone_key"></CheckBoxPreference> 
+		<RingtonePreference android:ringtoneType="all" android:title="@string/pref_notification_ringtonemode_titile" 
+		android:summary="@string/pref_notification_ringtonemode_summary" android:key="@string/pref_notification_ringtonemode_key" 
+		android:showDefault="true" android:dependency="@string/pref_notification_ringtone_key" 
+		android:showSilent="true"></RingtonePreference> <CheckBoxPreference android:summaryOff="@string/pref_notification_led_summaryoff" 
+		android:title="@string/pref_notification_led_title" android:summaryOn="@string/pref_notification_led_summaryon" 
+		android:dependency="@string/pref_enabled_key" android:defaultValue="@string/pref_notification_led_default" 
+		android:key="@string/pref_notification_led_key"></CheckBoxPreference> <ListPreference 
+		android:title="@string/pref_notification_ledmode_title" android:dependency="@string/pref_notification_led_key" 
+		android:key="@string/pref_notification_ledmode_key" android:entryValues="@array/pref_notification_led_values" 
+		android:entries="@array/pref_notification_led_entries" android:summary="@string/pref_notification_ledmode_summary" 
+		android:defaultValue="@string/pref_notification_ledmode_default"></ListPreference> 
+		</PreferenceCategory> -->
 
 	<PreferenceCategory android:key="@string/pref_other_key"
 		android:title="@string/pref_other_title">
@@ -60,5 +55,5 @@
 			android:dialogTitle="@string/app_name" android:key="@string/pref_about_key"
 			android:negativeButtonText="@null" android:summary="@string/pref_about_summary" />
 	</PreferenceCategory>
-	
+
 </PreferenceScreen>
