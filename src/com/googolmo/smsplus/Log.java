@@ -10,7 +10,7 @@ package com.googolmo.smsplus;
 public class Log {
 
 	public final static String LOGTAG = "SMSPlus";
-	public final static Boolean ISDEBUG = true;
+	public final static Boolean ISDEBUG = false;
 
 	public static void i(String msg) {
 		android.util.Log.i(LOGTAG, msg);
